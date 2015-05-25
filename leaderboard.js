@@ -5,6 +5,9 @@ if(Meteor.isClient){
     'player': function(){
        return PlayersList.find()
     },
+    'selectedClass': function(){
+       return "selected"
+    }
   });
 
   Template.leaderboard.events({
