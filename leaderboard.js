@@ -3,7 +3,7 @@ PlayersList = new Mongo.Collection('players');
 if(Meteor.isClient){
   Template.leaderboard.helpers({
     'player': function(){
-       return PlayersList.find({}, {sort: {score: -1, name: 1}})
+      return PlayersList.find({}, {sort: {score: -1, name: 1}})
     },
     'selectedClass': function(){
       var playerId = this._id;
@@ -36,11 +36,17 @@ if(Meteor.isClient){
   });
 
   Template.addPlayerForm.events({
-   'submit form': function(event){
-     event.preventDefault();
-     console.log("Form submitted");
-     console.log(event.type);
-   }
+    'submit form': function(event){
+      event.preventDefault();
+      var playerNameVar = event.target.playerName.value;
+
+      PlayersList.insert({
+        name: playerNameVar,
+        score: 0
+      });
+      event.target.playerName.value = "";
+      return false;
+    }
   });
 }
 
