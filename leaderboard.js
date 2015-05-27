@@ -32,6 +32,14 @@ if(Meteor.isClient){
     'click .decrement': function(){
       var selectedPlayer = Session.get('selectedPlayer');
       PlayersList.update(selectedPlayer, {$inc: {score: -5}});
+    },
+    'click .remove': function(e) {
+      e.preventDefault();
+
+      if (confirm("Delete this player?")) {
+        var selectedPlayer = Session.get('selectedPlayer');
+        PlayersList.remove(selectedPlayer);
+      }
     }
   });
 
@@ -39,12 +47,14 @@ if(Meteor.isClient){
     'submit form': function(event){
       event.preventDefault();
       var playerNameVar = event.target.playerName.value;
+      var playerScoreVar = event.target.playerScore.value;
 
       PlayersList.insert({
         name: playerNameVar,
-        score: 0
+        score: playerScoreVar
       });
       event.target.playerName.value = "";
+      event.target.playerScore.value = "";
       return false;
     }
   });
