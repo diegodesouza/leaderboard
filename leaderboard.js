@@ -62,6 +62,7 @@ if(Meteor.isClient){
       return false;
     }
   });
+  Meteor.subscribe('thePlayers');
 }
 
 if(Meteor.isServer){
