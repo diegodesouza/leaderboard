@@ -65,4 +65,7 @@ if(Meteor.isClient){
 }
 
 if(Meteor.isServer){
+  Meteor.publish('thePlayers', function(){
+    return PlayersList.find()
+  });
 }
