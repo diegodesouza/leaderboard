@@ -15,15 +15,15 @@
     {{/each}}
     {{#if currentUser}}
       {{#if showSelectedPlayer}}
-      <!-- increment button -->
-      <input type="button" class="increment" value="Give 5 Points"/>
-      <!-- decrement button -->
-      <input type="button" class="decrement" value="Take 5 Points"/>
-      <li>Selected Player: {{showSelectedPlayer.name}}</li>
-      <!-- remove player button -->
-      <input type="button" class="remove" value="Remove Player"/>
-      {{> addPlayerForm}}
+        <!-- increment button -->
+        <input type="button" class="increment" value="Give 5 Points"/>
+        <!-- decrement button -->
+        <input type="button" class="decrement" value="Take 5 Points"/>
+        <li>Selected Player: {{showSelectedPlayer.name}}</li>
+        <!-- remove player button -->
+        <input type="button" class="remove" value="Remove Player"/>
       {{/if}}
+      {{> addPlayerForm}}
     {{/if}}
   </ul>
 </template>
