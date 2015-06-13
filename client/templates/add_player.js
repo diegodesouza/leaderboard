@@ -10,4 +10,3 @@ Template.addPlayerForm.events({
   }
 });
 
-Meteor.subscribe('thePlayers');

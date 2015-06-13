@@ -1,3 +1,5 @@
+Meteor.subscribe('thePlayers');
+
 Template.leaderboard.helpers({
   'player': function(){
     var currentUserId = Meteor.userId();
